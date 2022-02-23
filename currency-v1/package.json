@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"devDependencies": {
 		"apickli": "latest",
-		"cucumber": "^1.0.0",
+		"@cucumber/cucumber": "^7",
 		"prettyjson": "^1.1.3",
 		"bluebird": "^3.3.5",
 		"chai": "^3",
