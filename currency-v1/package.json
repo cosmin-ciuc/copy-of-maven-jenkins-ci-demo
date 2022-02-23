@@ -2,7 +2,7 @@
 	"name": "currency-v1",
 	"version": "1.0.0",
 	"devDependencies": {
-		"apickli": "^1.7.0",
+		"apickli": "latest",
 		"cucumber": "^1.0.0",
 		"prettyjson": "^1.1.3",
 		"bluebird": "^3.3.5",
