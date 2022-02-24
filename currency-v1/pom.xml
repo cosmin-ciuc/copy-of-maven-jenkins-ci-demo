@@ -250,7 +250,7 @@
 						<configuration>
 							<executable>./node_modules/@cucumber/cucumber/bin/cucumber-js</executable>
 							<commandlineArgs>
-								target/test/integration/features --format message:integration-tests-result.json
+								target/test/integration/features --format message:../../integration-tests-result.json
 							</commandlineArgs>
 						</configuration>
 					</execution>
@@ -258,7 +258,6 @@
 			</plugin>
 
 			<!-- cleaning dirs -->
-			<!--
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>2.5</version>
@@ -280,7 +279,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			-->
 		</plugins>
 	</build>
 
