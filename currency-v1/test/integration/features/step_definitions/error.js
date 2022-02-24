@@ -14,10 +14,11 @@
  * limitations under the License.
 */
 'use strict';
+import { Then } from '@cucumber/cucumber';
 
-module.exports = function () {
+export default function () {
 
-	this.Then(/^I should get a (\d{3}) error with "(.*)" message and code "(.*)"$/, function (statusCode, errorMessage, errorCode, callback) {
+	Then(/^I should get a (\d{3}) error with "(.*)" message and code "(.*)"$/, function (statusCode, errorMessage, errorCode, callback) {
 		var assertion = this.apickli.assertPathInResponseBodyMatchesExpression('$.message', errorMessage);
 		if (!assertion.success) {
 			callback(JSON.stringify(assertion));
