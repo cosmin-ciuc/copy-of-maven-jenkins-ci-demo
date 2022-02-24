@@ -11,6 +11,7 @@ export default class extends World {
     }
 
     init(scenario) {
-        this.apickli = new Apickli.Apickli('https', config.currencyApi.domain + config.currencyApi.basepath, './test/integration/features/fixtures/');
+        this.apickli = new Apickli.Apickli('https', config.currencyApi.domain + config.currencyApi.basepath);
+        this.apickli.addRequestHeader('Cache-Control', 'no-cache');
     }
 }

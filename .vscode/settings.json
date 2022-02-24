@@ -1,0 +1,6 @@
+{
+    "cucumberautocomplete.steps": [
+        "currency-v1/test/integration/features/step_definitions/*.js",
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true
+}
