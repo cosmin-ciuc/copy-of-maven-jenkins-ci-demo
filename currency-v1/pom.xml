@@ -250,7 +250,7 @@
 						<configuration>
 							<executable>./node_modules/@cucumber/cucumber/bin/cucumber-js</executable>
 							<commandlineArgs>
-								target/test/integration/features --format message:../../integration-tests-result.json
+								target/test/integration/features --format message:../integration-tests-result.json
 							</commandlineArgs>
 						</configuration>
 					</execution>
