@@ -1,5 +1,6 @@
-import { World } from '@cucumber/cucumber';
-import { Apickli } from 'apickli';
+const { World } = require('@cucumber/cucumber');
+
+const Apickli = require('apickli');
 
 var config = require('../../test-config.json');
 

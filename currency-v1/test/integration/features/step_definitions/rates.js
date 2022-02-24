@@ -14,8 +14,8 @@
  * limitations under the License.
 */
 'use strict';
-import { When, Then } from '@cucumber/cucumber';
-import Promise from 'bluebird';
+const { When, Then } = require('@cucumber/cucumber');
+const Promise = require('bluebird');
 
 var assertSuccessfulApiResponse = function(apickli) {
 	return new Promise(function(resolve, reject) {

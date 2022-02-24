@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-import { Before, setWorldConstructor, setDefaultTimeout } from '@cucumber/cucumber';
-import CustomWorld from "../classes/customWorld.js"
+const { Before, setWorldConstructor, setDefaultTimeout } = require('@cucumber/cucumber');
+const CustomWorld = require("../classes/customWorld.js");
 var config = require('../../test-config.json');
 
 console.log('currency api: [' + config.currencyApi.domain + ', ' + config.currencyApi.basepath + ']');

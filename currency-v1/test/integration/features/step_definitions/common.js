@@ -15,7 +15,7 @@
 */
 'use strict';
 
-import { When } from "@cucumber/cucumber";
+const {When} = require('@cucumber/cucumber');
 
 When(/^I request a non-existing API resource$/, function(callback) {
 	this.apickli.get('/blah', callback);

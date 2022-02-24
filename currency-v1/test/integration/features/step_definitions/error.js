@@ -14,7 +14,7 @@
  * limitations under the License.
 */
 'use strict';
-import { Then } from '@cucumber/cucumber';
+const {Then} = require('@cucumber/cucumber');
 
 Then(/^I should get a (\d{3}) error with "(.*)" message and code "(.*)"$/, function (statusCode, errorMessage, errorCode, callback) {
 	var assertion = this.apickli.assertPathInResponseBodyMatchesExpression('$.message', errorMessage);
