@@ -13,15 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-const { Before, setWorldConstructor, setDefaultTimeout } = require('@cucumber/cucumber');
-const CustomWorld = require("../classes/customWorld.js");
+'use strict';
+
+const apickli = require('apickli');
+const { Before, setDefaultTimeout } = require('@cucumber/cucumber');
+
 var config = require('../../test-config.json');
 
 console.log('currency api: [' + config.currencyApi.domain + ', ' + config.currencyApi.basepath + ']');
-setWorldConstructor(CustomWorld);
+
 setDefaultTimeout(60 * 1000);
 
 // cleanup before every scenario
 Before(function(scenario) {
-	this.init(scenario);
+    this.apickli = new apickli.Apickli('https', config.currencyApi.domain + config.currencyApi.basepath);
+    this.apickli.addRequestHeader('Cache-Control', 'no-cache');
 });
