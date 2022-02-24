@@ -14,8 +14,8 @@
  * limitations under the License.
 */
 'use strict';
-
-var Promise = require('bluebird');
+import { When, Then } from '@cucumber/cucumber';
+import Promise from 'bluebird';
 
 var assertSuccessfulApiResponse = function(apickli) {
 	return new Promise(function(resolve, reject) {
@@ -39,27 +39,26 @@ var assertSuccessfulApiResponse = function(apickli) {
 	});
 };
 
-module.exports = function() {
-
-	this.When(/^I request all exchange rates with default values$/, function(callback) {
+export default function() {
+	When(/^I request all exchange rates with default values$/, function(callback) {
 		this.apickli.get('/latest', callback);
 	});
 
-	this.When(/^I request all exchange rates with (.{3}) as the base currency$/, function(base, callback) {
+	When(/^I request all exchange rates with (.{3}) as the base currency$/, function(base, callback) {
 		this.apickli.queryParameters.base = base;
 		this.apickli.get('/latest', callback);
 	});
 
-	this.When(/^I request all exchange rates for (.*)$/, function(date, callback) {
+	When(/^I request all exchange rates for (.*)$/, function(date, callback) {
 		this.apickli.get('/'+date, callback);
 	});
 
-	this.When(/^I request all exchange rates with (.{3}) as the base currency for (.*)$/, function(base, date, callback) {
+	When(/^I request all exchange rates with (.{3}) as the base currency for (.*)$/, function(base, date, callback) {
 		this.apickli.queryParameters.base = base;
 		this.apickli.get('/'+date, callback);
 	});
 
-	this.Then(/^I should see (.*) as the base currency$/, function(base, callback) {
+	Then(/^I should see (.*) as the base currency$/, function(base, callback) {
 		var self = this;
 		assertSuccessfulApiResponse(this.apickli)
 		.then(function() {
@@ -75,7 +74,7 @@ module.exports = function() {
 		});
 	});
 
-	this.Then(/^I should see the rates for the latest exchange day$/, function(callback) {
+	Then(/^I should see the rates for the latest exchange day$/, function(callback) {
 		var self = this;
 		assertSuccessfulApiResponse(this.apickli)
 		.then(function() {
@@ -97,7 +96,7 @@ module.exports = function() {
 		});
 	});
 
-	this.Then(/^I should see the rates for (\d{4}-\d{2}-\d{2})$/, function(date, callback) {
+	Then(/^I should see the rates for (\d{4}-\d{2}-\d{2})$/, function(date, callback) {
 		var self = this;
 		assertSuccessfulApiResponse(this.apickli)
 		.then(function() {
@@ -112,5 +111,4 @@ module.exports = function() {
 			callback(JSON.stringify(assertion));
 		});
 	});
-
 };

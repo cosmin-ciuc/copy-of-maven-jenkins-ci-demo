@@ -13,22 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
 */
-'use strict';
-
-var apickli = require('apickli');
+import { Before, setWorldConstructor, setDefaultTimeout } from '@cucumber/cucumber';
+import CustomWorld from "../classes/customWorld.js"
 var config = require('../../test-config.json');
 
 console.log('currency api: [' + config.currencyApi.domain + ', ' + config.currencyApi.basepath + ']');
+setWorldConstructor(CustomWorld);
+setDefaultTimeout(60 * 1000);
 
-module.exports = function() {
-
-    this.setDefaultTimeout(60 * 1000);
-
-	// cleanup before every scenario
-	this.Before(function(scenario, callback) {
-		this.apickli = new apickli.Apickli('https',
-										   config.currencyApi.domain + config.currencyApi.basepath,
-										   './test/integration/features/fixtures/');
-		callback();
-	});
-};
+// cleanup before every scenario
+Before(function(scenario) {
+	this.init(scenario);
+});
