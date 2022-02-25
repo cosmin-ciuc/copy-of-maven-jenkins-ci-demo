@@ -16,6 +16,7 @@
 'use strict';
 const { When, Then } = require('@cucumber/cucumber');
 const Promise = require('bluebird');
+const config = require('../../test-config.json');
 
 var assertSuccessfulApiResponse = function(apickli) {
 	return new Promise(function(resolve, reject) {
@@ -40,6 +41,7 @@ var assertSuccessfulApiResponse = function(apickli) {
 };
 
 When(/^I request all exchange rates with default values$/, function(callback) {
+	this.apickli.domain = 'https://' + config.currencyApi.domain + config.currencyApi.basepath;
 	this.apickli.get('/latest', callback);
 });
 
