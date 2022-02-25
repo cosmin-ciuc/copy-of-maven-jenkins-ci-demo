@@ -25,7 +25,8 @@ console.log('currency api: [' + config.currencyApi.domain + ', ' + config.curren
 setDefaultTimeout(60 * 1000);
 
 // cleanup before every scenario
-Before(function(scenario) {
-    this.apickli = new apickli.Apickli('https', config.currencyApi.domain + config.currencyApi.basepath);
+Before(function(scenario, callback) {
+    this.apickli = new apickli.Apickli('https', config.currencyApi.domain + config.currencyApi.basepath, './test/integration/features/fixtures/');
     this.apickli.addRequestHeader('Cache-Control', 'no-cache');
+    callback();
 });
