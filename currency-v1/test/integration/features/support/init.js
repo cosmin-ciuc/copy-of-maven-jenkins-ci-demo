@@ -24,6 +24,7 @@ console.log('currency api: [' + config.currencyApi.domain + ', ' + config.curren
 
 // cleanup before every scenario
 Before(function(scenario, callback) {
+    console.log('Before: scenario=' + scenario + ', callback=' + callback);
     this.apickli = new apickli.Apickli('https', config.currencyApi.domain + config.currencyApi.basepath, './test/integration/features/fixtures/');
     this.apickli.addRequestHeader('Cache-Control', 'no-cache');
     callback();
