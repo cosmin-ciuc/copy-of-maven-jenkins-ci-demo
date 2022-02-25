@@ -61,6 +61,11 @@
 				<apigee.options>update</apigee.options>
 				<api.northbound.domain>${env.API_DOMAIN_TEST}</api.northbound.domain>
 				<api.testtag>~@wip</api.testtag>
+
+				<sonar.host.url>http://localhost:9000</sonar.host.url>
+				<sonar.projectKey>copy-of-maven-jenkins-ci-demo</sonar.projectKey>
+				<sonar.login>36813bc2fba97fd33238c636bb4aec006d4fad87</sonar.login>
+				<sonar.sources>apiproxy</sonar.sources>
 			</properties>
 		</profile>
 		<profile>
@@ -90,10 +95,20 @@
 					<artifactId>apigee-edge-maven-plugin</artifactId>
 					<version>1.1.7</version>
 				</plugin>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>3.7.0.1746</version>
+				</plugin>				
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
+			</plugin>
 
 			<!-- run jslint -->
 			<plugin>
