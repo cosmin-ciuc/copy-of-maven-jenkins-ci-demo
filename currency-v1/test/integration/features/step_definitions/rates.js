@@ -41,7 +41,6 @@ var assertSuccessfulApiResponse = function(apickli) {
 };
 
 When(/^I request all exchange rates with default values$/, function(callback) {
-	console.log('I request all exchange rates with default values, this.apickli.domain=' + this.apickli.domain + ', callback=' + callback);
 	this.apickli.get('/latest', callback);
 });
 
