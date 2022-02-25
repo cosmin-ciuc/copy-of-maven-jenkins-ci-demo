@@ -13,6 +13,16 @@
 				</Step>
 			</Response>
 		</Flow>
+		<Flow name="404">
+			<Request>
+				<Step>
+					<Name>AssignMessage.SetApigee404ErrorVariables</Name>
+				</Step>
+				<Step>
+					<Name>RaiseFault.GoToFaultRules</Name>
+				</Step>
+			</Request>
+		</Flow>
 	</Flows>
 
 	<RouteRule name="empty">
