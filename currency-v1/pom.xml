@@ -62,7 +62,7 @@
 				<api.northbound.domain>${env.API_DOMAIN_TEST}</api.northbound.domain>
 				<api.testtag>~@wip</api.testtag>
 
-				<sonar.host.url>http://localhost:9000</sonar.host.url>
+				<sonar.host.url>http://DESKTOP-5LKV7ON:9000</sonar.host.url>
 				<sonar.projectKey>copy-of-maven-jenkins-ci-demo</sonar.projectKey>
 				<sonar.login>36813bc2fba97fd33238c636bb4aec006d4fad87</sonar.login>
 				<sonar.sources>apiproxy</sonar.sources>
